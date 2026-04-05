@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>Inscription</h2>
+    <form method="POST" action="/register">
+        <input name="nom" placeholder="Nom" required>
+        <input name="email" placeholder="Email" required>
+        <input name="password" type="password" placeholder="Mot de passe" required>
+        <button>S'inscrire</button>
+    </form>
+</div>
+
+<div class="card">
+    <h2>Voter</h2>
+    <form method="POST" action="/vote">
+        <input name="electeur_id" placeholder="Votre ID" required>
+
+        <select name="candidat_id">
+            {% for c in candidats %}
+            <option value="{{ c.id }}">{{ c.nom }}</option>
+            {% endfor %}
+        </select>
+
+        <button>Voter</button>
+    </form>
+</div>
+
+<a href="/results">Voir résultats</a>
+
+{% endblock %}

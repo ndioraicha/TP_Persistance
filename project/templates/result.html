@@ -1,0 +1,7 @@
+<h2>Résultats</h2>
+
+{% for c in resultats %}
+    <p>{{ c.nom }} : {{ c.total }} votes</p>
+{% else %}
+    <p>Aucun vote pour le moment</p>
+{% endfor %}
